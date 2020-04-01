@@ -1,19 +1,14 @@
 pipeline {
-    agent {
-        label '!windows'
-    }
-
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-    }
-
+    agent any
     stages {
-        stage('Build') {
-            steps {
-                echo "Database engine is ${DB_ENGINE}"
-                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
-                sh 'printenv'
+        stage('Stage 1') {
+            steps { 
+                echo 'Hello Stage 1'
+            }
+        }
+        stage('Stage 2') {
+            steps { 
+                echo 'Hello Stage 2'
             }
         }
     }
